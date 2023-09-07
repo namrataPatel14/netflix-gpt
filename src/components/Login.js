@@ -7,16 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
+import { profile } from "../utils/Constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useRef(null);
   const email = useRef(null);
@@ -43,8 +42,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://lh3.googleusercontent.com/ogw/AGvuzYZXaiD_A6eVIXoyCy7uQgLBOTKagPByHgtOHDg63ys=s32-c-mo",
+            photoURL:profile,
           })
             .then(() => {
               const { email, uid, displayName, photoURL } = auth.currentUser;
@@ -56,7 +54,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -74,11 +72,9 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
+
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
-          // ...
+
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -95,7 +91,7 @@ const Login = () => {
         className="px-12 py-4 bg-blend-multiply bg-black bg-opacity-50 flex items-center justify-center bg-cover bg-center h-screen 
       bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/4f0437a7-333c-42f9-801e-dce7a032c30c/CA-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg')]"
       >
-        <div className="w-1/4 bg-black px-16 py-12 bg-opacity-70 rounded">
+        <div className="w-full max-w-sm	 bg-black px-16 py-12 bg-opacity-70 rounded">
           <h1 className="text-3xl text-white font-medium mb-8">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
