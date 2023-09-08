@@ -27,6 +27,11 @@
 - Planning for main and secondary container
 - Fetch data for trailer video
 - Embedded youtube video
+- Build secondary component
+- Build movie list
+- Build movie card
+- IMDB image cdn url
+- UsePopularMovie custom hook
 
 
 
