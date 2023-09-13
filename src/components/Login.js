@@ -10,7 +10,7 @@ import { auth } from "../utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
 import { profile } from "../utils/Constant";
-
+import { bg_url } from '../utils/Constant';
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
@@ -87,9 +87,8 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div
-        className="px-12 py-4 bg-blend-multiply bg-black bg-opacity-50 flex items-center justify-center bg-cover bg-center h-screen 
-      bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/4f0437a7-333c-42f9-801e-dce7a032c30c/CA-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg')]"
+      <div style={{backgroundImage: `url(${bg_url})`}}
+        className="px-12 py-4 bg-blend-multiply bg-black bg-opacity-50 flex items-center justify-center bg-cover bg-center h-screen"
       >
         <div className="w-full max-w-sm	 bg-black px-16 py-12 bg-opacity-70 rounded">
           <h1 className="text-3xl text-white font-medium mb-8">

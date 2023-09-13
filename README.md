@@ -32,7 +32,10 @@
 - Build movie card
 - IMDB image cdn url
 - UsePopularMovie custom hook
-
+- GPT search page
+- GPT search bar
+- Multi language feature in app
+- GPT APIs integration(get openAI key)
 
 
 # Features
