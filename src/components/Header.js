@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <div
-      className="absolute z-50 px-8 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center
+      className="absolute z-50 px-8 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center top-0
     "
     >
       <img className="w-48" src={logo} alt="logo" />
@@ -59,7 +59,7 @@ const Header = () => {
         <div className="flex">
           {
             showGptSearch &&
-            <select onChange={handleLanguageChange}>
+            <select onChange={handleLanguageChange} className=" bg-transparent text-white">
             {SUPPORTED_LANGAUGES.map((lang) => (
               <option key={lang.identifier} value={lang.identifier}>
                 {lang.name}
@@ -70,17 +70,17 @@ const Header = () => {
           
           <Link
             onClick={handleGptSearchClick}
-            className="pt-2 text-sm font-medium text-white"
+            className="bg-white text-black text-sm px-6 py-2 rounded hover:bg-opacity-50 mr-5 ml-5"
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </Link>
-          <div className="flex justify-center items-center flex-col">
-            <img className="w-8" src={user?.photoURL} alt="profile-icon"></img>
+          <div className="flex justify-center items-center">
+            <img className="w-4" src={user?.photoURL} alt="profile-icon"></img>
             <Link
               onClick={handleSignOut}
-              className="pt-2 text-sm font-medium text-white"
+              className="text-sm  text-white ml-1"
             >
-              SignOut
+              Sign out
             </Link>
           </div>
         </div>

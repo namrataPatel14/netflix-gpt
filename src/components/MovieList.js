@@ -16,8 +16,8 @@ const MovieList = ({ title, movies }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 8,
-          slidesToScroll: 8,
+          slidesToShow: 5,
+          slidesToScroll: 5,
           infinite: true,
           dots: true
         }
@@ -43,7 +43,7 @@ const MovieList = ({ title, movies }) => {
     <div className="pb-24">
       <h1 className="mb-4 text-white text-2xl">{title}</h1>
       <Slider {...settings}>
-        {movies?.map((movie) => (
+        {movies?.map((movie) => ( movie.poster_path &&
           <MovieCard key={movie.id} posterPath={movie.poster_path} />
         ))}
       </Slider>

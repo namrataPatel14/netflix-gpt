@@ -9,8 +9,8 @@ import {
 import { auth } from "../utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/UserSlice";
-import { profile } from "../utils/Constant";
-import { bg_url } from '../utils/Constant';
+import { profile,bg_url } from "../utils/Constant";
+
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
