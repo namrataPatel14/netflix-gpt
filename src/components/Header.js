@@ -70,15 +70,15 @@ const Header = () => {
           
           <Link
             onClick={handleGptSearchClick}
-            className="bg-white text-black text-sm px-6 py-2 rounded hover:bg-opacity-50 mr-5 ml-5"
+            className="bg-white text-black text-sm px-6 py-2 sm:px-4 sm:text-xs sm:py-1 rounded hover:bg-opacity-50 mr-5 ml-5 sm:mr-4"
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </Link>
           <div className="flex justify-center items-center">
-            <img className="w-4" src={user?.photoURL} alt="profile-icon"></img>
+            <img className="w-4 sm:w-3" src={user?.photoURL} alt="profile-icon"></img>
             <Link
               onClick={handleSignOut}
-              className="text-sm  text-white ml-1"
+              className="text-sm sm:text-xs text-white ml-1"
             >
               Sign out
             </Link>
