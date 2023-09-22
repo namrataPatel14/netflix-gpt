@@ -51,10 +51,10 @@ const Header = () => {
 
   return (
     <div
-      className="absolute z-50 px-8 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center top-0
+      className="absolute z-50 px-8 md:px-3 sm:px-2 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center top-0
     "
     >
-      <img className="w-48" src={logo} alt="logo" />
+      <img className="w-48 md:w-32 sm:w-28" src={logo} alt="logo" />
       {user && (
         <div className="flex">
           {

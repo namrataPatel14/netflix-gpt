@@ -4,37 +4,49 @@ import Slider from "react-slick";
 
 
 const MovieList = ({ title, movies }) => {
+ console.log(movies,"movies11")
   var settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 10,
     slidesToScroll: 10,
-    initialSlide: 0,
+    initialSlide: 2,
     arrows:false,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 7,
+        }
+      },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 5,
-          infinite: true,
-          dots: true
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2,
+          slidesToScroll: 2
         }
       }
     ]
