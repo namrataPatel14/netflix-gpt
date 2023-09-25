@@ -88,10 +88,10 @@ const Login = () => {
     <div>
       <Header />
       <div style={{backgroundImage: `url(${bg_url})`}}
-        className="px-12 py-4 bg-blend-multiply bg-black bg-opacity-50 flex items-center justify-center bg-cover bg-center h-screen"
+        className="px-12 xs:px-5 py-4 xs:py-3 bg-blend-multiply bg-black bg-opacity-50 flex items-center justify-center bg-cover bg-center h-screen"
       >
-        <div className="w-full max-w-sm	 bg-black px-16 py-12 bg-opacity-70 rounded">
-          <h1 className="text-3xl text-white font-medium mb-8">
+        <div className="w-full max-w-sm	 bg-black px-16 xs:px-12 sm:py-10 py-12 bg-opacity-70 rounded">
+          <h1 className="text-3xl text-white font-medium mb-8 xs:mb-6">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
           <form onSubmit={(e) => e.preventDefault()} className="flex flex-col">
@@ -127,7 +127,7 @@ const Login = () => {
             </button>
           </form>
           <p
-            className="text-white font-normal text-xs mt-2 cursor-pointer"
+            className="text-white font-normal text-xs mt-3 cursor-pointer"
             onClick={toggleSignInForm}
           >
             {isSignInForm

@@ -48,13 +48,15 @@ const Header = () => {
     //unsubscribe when component unmount;
     return () => unsubscribe();
   }, []);
-
+  const navigateMain = () =>{
+    dispatch(toggleGptSearchView());
+  }
   return (
     <div
-      className="absolute z-50 px-8 md:px-3 sm:px-2 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center top-0
+      className="absolute z-50 px-8 md:px-3 xs:px-3 sm:px-2 py-2 bg-gradient-to-b from-black w-full flex justify-between items-center top-0
     "
     >
-      <img className="w-48 md:w-32 sm:w-28" src={logo} alt="logo" />
+     <Link onClick={navigateMain}> <img className="w-48 md:w-32 sm:w-28 xs:w-24" src={logo} alt="logo" /></Link>
       {user && (
         <div className="flex">
           {
@@ -70,15 +72,16 @@ const Header = () => {
           
           <Link
             onClick={handleGptSearchClick}
-            className="bg-white text-black text-sm px-6 py-2 sm:px-4 sm:text-xs sm:py-1 rounded hover:bg-opacity-50 mr-5 ml-5 sm:mr-4"
+            className="bg-white text-black text-sm px-6 py-2 sm:px-4 xs:px-3 sm:text-xs xs:text-xs sm:py-1 xs:py-1
+             rounded hover:bg-opacity-50 mr-5 ml-5 sm:mr-4 xs:mr-3"
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </Link>
           <div className="flex justify-center items-center">
-            <img className="w-4 sm:w-3" src={user?.photoURL} alt="profile-icon"></img>
+            <img className="w-4 sm:w-3 xs:w-2" src={user?.photoURL} alt="profile-icon"></img>
             <Link
               onClick={handleSignOut}
-              className="text-sm sm:text-xs text-white ml-1"
+              className="text-sm sm:text-xs xs:text-xs text-white ml-1"
             >
               Sign out
             </Link>

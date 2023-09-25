@@ -45,15 +45,15 @@ const MovieList = ({ title, movies }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToShow: 3,
+          slidesToScroll: 3
         }
       }
     ]
   };
   return (
-    <div className="pb-24">
-      <h1 className="mb-4 text-white text-2xl">{title}</h1>
+    <div className="pb-24 xs:pb-16">
+      <h1 className="mb-4 text-white text-2xl xs:text-lg xs:mb-3">{title}</h1>
       <Slider {...settings}>
         {movies?.map((movie) => ( movie.poster_path &&
           <MovieCard key={movie.id} posterPath={movie.poster_path} />
