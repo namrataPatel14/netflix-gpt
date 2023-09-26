@@ -61,7 +61,7 @@ const Header = () => {
         <div className="flex">
           {
             showGptSearch &&
-            <select onChange={handleLanguageChange} className=" bg-transparent text-white">
+            <select onChange={handleLanguageChange} className="focus:outline-none bg-transparent text-white">
             {SUPPORTED_LANGAUGES.map((lang) => (
               <option key={lang.identifier} value={lang.identifier}>
                 {lang.name}
