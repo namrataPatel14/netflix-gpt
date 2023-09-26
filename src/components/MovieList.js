@@ -4,7 +4,7 @@ import Slider from "react-slick";
 
 
 const MovieList = ({ title, movies }) => {
- console.log(movies,"movies11")
+
   var settings = {
     dots: true,
     infinite: false,

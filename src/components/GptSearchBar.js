@@ -4,13 +4,16 @@ import { lang } from "../utils/Language";
 import { useDispatch, useSelector } from "react-redux";
 import openai from "../utils/Openai";
 import { addGptMovieResult } from "../utils/GptSlice";
+import { loaderVisibility } from "../utils/LoaderSlice";
 
 const GptSearchBar = () => {
+  
   const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch()
   const searchText = useRef(null);
 
   const searchMovieTMDB = async (movie) => {
+    
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
@@ -19,11 +22,12 @@ const GptSearchBar = () => {
     );
 
     const json = await data.json();
-
+    
     return json.results;
   };
 
   const handleGptSearchClick = async () => {
+   dispatch(loaderVisibility({loading:true}))
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movie for the query :" +
       searchText.current.value +
@@ -39,9 +43,12 @@ const GptSearchBar = () => {
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
 
     const tmdbResult = await Promise.all(promiseArray);
-
-
+    
+    if(tmdbResult){
+      dispatch(loaderVisibility({loading:false}))
+    }
     dispatch(addGptMovieResult({movieNames:gptMovies, movieResults:tmdbResult}))
+    
   };
 
   return (
