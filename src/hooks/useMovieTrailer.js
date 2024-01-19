@@ -2,7 +2,7 @@ import { API_OPTIONS } from '../utils/Constant'
 import { useDispatch } from 'react-redux'
 import { addTrailerVideo } from '../utils/MoviesSlices';
 import { useEffect } from 'react';
-
+//created custom hook
 const useMovieTrailer = (movieId) => {
    
     const dispatch = useDispatch();

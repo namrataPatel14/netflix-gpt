@@ -11,7 +11,8 @@ const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch()
   const searchText = useRef(null);
-
+  
+  //API call
   const searchMovieTMDB = async (movie) => {
     
     const data = await fetch(
@@ -41,7 +42,7 @@ const GptSearchBar = () => {
     const gptMovies = gptResult.choices?.[0]?.message?.content.split(",");
 
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
-
+    //handeling promises
     const tmdbResult = await Promise.all(promiseArray);
     
     if(tmdbResult){
